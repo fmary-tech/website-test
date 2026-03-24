@@ -4,24 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akilead — La Performance par l'Humain</title>
-    <meta name="description" content="Akilead : audit TVA, audit fiscal, coaching d'organisation. Nous révélons l'invisible pour améliorer votre performance fiscale et financière.">
+    <meta name="description" content="Akilead : audit TVA, audit fiscal, coaching d'organisation. Révéler l'invisible pour améliorer votre performance fiscale et financière.">
     <meta name="theme-color" content="#325ce8">
+    <link rel="icon" href="https://akilead.com/wp-content/uploads/2020/03/2020-03-AkiLead-small-e1584547301557.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ================================================================
+           AKILEAD — Professional Redesign
+           Brand: #325ce8 (blue) · #0AD2BA (teal)
+           Font: Poppins
+           ================================================================ */
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
-            --primary: #325ce8;
-            --primary-dark: #2648c0;
-            --accent: #0AD2BA;
-            --accent-dark: #09b8a3;
+            --blue: #325ce8;
+            --blue-dark: #2648c0;
+            --blue-light: #eef1fd;
+            --teal: #0AD2BA;
+            --teal-dark: #09b8a3;
+            --teal-light: #e6faf7;
             --dark: #1a1f36;
-            --text: #454545;
-            --text-light: #717171;
+            --text: #3d4455;
+            --text-light: #6b7280;
+            --text-muted: #9ca3af;
             --bg: #ffffff;
-            --bg-alt: #f2f3f8;
-            --radius: 12px;
+            --bg-warm: #fafbff;
+            --bg-alt: #f3f4f8;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html { scroll-behavior: smooth; }
@@ -29,53 +51,90 @@
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.65;
             background: var(--bg);
+            overflow-x: hidden;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { transition: var(--transition); }
 
-        /* ── NAV ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ── NAVIGATION ── */
         .nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(12px);
-            z-index: 100;
-            box-shadow: 0 1px 10px rgba(0,0,0,0.06);
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+
+        .nav.scrolled {
+            box-shadow: var(--shadow-sm);
         }
 
         .nav-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
+        .nav-logo {
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: -0.5px;
+            gap: 0.5rem;
         }
 
-        .logo span { color: var(--accent); }
+        .nav-logo img {
+            height: 38px;
+            width: auto;
+        }
 
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: var(--transition);
         }
 
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover {
+            color: var(--blue);
+            background: var(--blue-light);
+        }
+
+        .nav-cta {
+            background: var(--blue) !important;
+            color: #fff !important;
+            font-weight: 600 !important;
+            padding: 0.5rem 1.4rem !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--blue-dark) !important;
+            color: #fff !important;
+        }
 
         .hamburger {
             display: none;
@@ -84,14 +143,15 @@
             cursor: pointer;
             background: none;
             border: none;
-            padding: 4px;
+            padding: 6px;
         }
 
         .hamburger span {
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: var(--dark);
-            transition: 0.3s;
+            border-radius: 2px;
+            transition: var(--transition);
         }
 
         /* ── HERO ── */
@@ -99,213 +159,478 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 50%, #f2f3f8 100%);
+            padding: 7rem 2rem 4rem;
+            background: var(--bg-warm);
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(50,92,232,0.08) 0%, transparent 70%);
-            top: -100px;
-            right: -200px;
+            inset: 0;
+            z-index: 0;
         }
 
-        .hero::after {
-            content: '';
+        .hero-bg .orb {
             position: absolute;
-            width: 400px;
-            height: 400px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(10,210,186,0.08) 0%, transparent 70%);
-            bottom: -100px;
-            left: -100px;
+            filter: blur(80px);
+            opacity: 0.5;
         }
 
-        .hero-content { position: relative; z-index: 1; max-width: 800px; }
+        .hero-bg .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(50,92,232,0.12);
+            top: -10%;
+            right: -5%;
+        }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero-bg .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: rgba(10,210,186,0.1);
+            bottom: -5%;
+            left: -5%;
+        }
+
+        .hero-bg .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(50,92,232,0.08);
+            top: 40%;
+            left: 30%;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.4rem, 4.5vw, 3.6rem);
             font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
+            line-height: 1.12;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
         }
 
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: var(--text-light);
-            font-weight: 400;
-            margin-bottom: 1rem;
+        .hero-text h1 .accent {
+            background: linear-gradient(135deg, var(--blue), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .hero .description {
+        .hero-text .tagline {
+            font-size: 1.15rem;
+            color: var(--blue);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-text .description {
             font-size: 1.05rem;
-            color: var(--text);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 2.5rem;
+            max-width: 520px;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image {
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        .hero-float-card {
+            position: absolute;
+            bottom: -20px;
+            left: -30px;
+            background: #fff;
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-float-card .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--teal-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .hero-float-card .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .hero-float-card .value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ── BUTTONS ── */
         .btn {
-            display: inline-block;
-            padding: 0.9rem 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: var(--blue);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(50,92,232,0.3);
+            border-color: var(--blue);
+            box-shadow: 0 4px 16px rgba(50,92,232,0.25);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--blue-dark);
+            border-color: var(--blue-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(50,92,232,0.4);
+            box-shadow: 0 6px 24px rgba(50,92,232,0.35);
         }
 
         .btn-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            margin-left: 1rem;
+            border-color: var(--border);
+            color: var(--text);
+            background: #fff;
         }
 
         .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
+            border-color: var(--blue);
+            color: var(--blue);
+            background: var(--blue-light);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--blue);
+            border-color: #fff;
+        }
+
+        .btn-white:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
         }
 
         /* ── SECTIONS ── */
-        section { padding: 6rem 2rem; }
+        section { padding: 7rem 0; }
 
-        .section-title {
+        .section-header {
             text-align: center;
             margin-bottom: 4rem;
         }
 
-        .section-title h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--blue);
+            background: var(--blue-light);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
         }
 
-        .section-title p {
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .section-header p {
             color: var(--text-light);
             font-size: 1.05rem;
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        .section-title .bar {
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-            margin: 1rem auto 0;
+            line-height: 1.7;
         }
 
         /* ── SERVICES ── */
-        #services { background: var(--bg-alt); }
+        #services {
+            background: var(--bg);
+        }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .card {
-            background: #fff;
+        .service-card {
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 2.5rem 2rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid transparent;
+            padding: 2.5rem 2rem 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover {
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--teal));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            border-top-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
         }
 
-        .card-icon {
-            width: 60px;
-            height: 60px;
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card > p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.75;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card ul {
+            list-style: none;
             margin-bottom: 1.5rem;
         }
 
-        .card-icon.blue { background: rgba(50,92,232,0.1); }
-        .card-icon.teal { background: rgba(10,210,186,0.1); }
-        .card-icon.purple { background: rgba(130,80,230,0.1); }
-
-        .card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-        }
-
-        .card p {
+        .service-card ul li {
+            font-size: 0.88rem;
             color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 0.8rem;
+            padding: 0.35rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            line-height: 1.6;
         }
 
-        .card ul {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin: 0.5rem 0 1.5rem 1.2rem;
+        .service-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
         }
 
-        .badge {
-            display: inline-block;
-            background: rgba(10,210,186,0.12);
-            color: var(--accent-dark);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            margin-top: 0.5rem;
-        }
-
-        .card-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
+        .service-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
-            transition: gap 0.2s;
+            gap: 0.4rem;
+            background: var(--teal-light);
+            color: var(--teal-dark);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
         }
 
-        .card-link:hover { gap: 0.6rem; }
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
 
-        /* ── ABOUT / TEAM ── */
-        #about { background: var(--bg); }
+        .service-link:hover { gap: 0.7rem; }
+
+        .service-link svg {
+            width: 16px;
+            height: 16px;
+            transition: var(--transition);
+        }
+
+        /* ── SERVICE DETAIL SECTIONS ── */
+        .service-detail {
+            padding: 5rem 0;
+        }
+
+        .service-detail:nth-child(even) {
+            background: var(--bg-alt);
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .detail-grid.reverse {
+            direction: rtl;
+        }
+
+        .detail-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .detail-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        .detail-content .detail-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--teal-dark);
+            background: var(--teal-light);
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.2rem;
+            line-height: 1.25;
+        }
+
+        .detail-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .detail-content ul li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .detail-content ul li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .detail-highlight {
+            background: var(--blue-light);
+            border-left: 4px solid var(--blue);
+            padding: 1rem 1.5rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-top: 1rem;
+        }
+
+        .detail-highlight p {
+            color: var(--text);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            background: var(--bg-warm);
+        }
 
         .about-intro {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto 4rem;
             text-align: center;
         }
@@ -313,119 +638,222 @@
         .about-intro p {
             color: var(--text);
             font-size: 1.05rem;
-            line-height: 1.8;
+            line-height: 1.85;
             margin-bottom: 1rem;
         }
 
+        .vat4u-mention {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.8rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .vat4u-mention img {
+            height: 28px;
+            width: auto;
+        }
+
+        .vat4u-mention span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ── TEAM ── */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2.5rem;
-            margin-top: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .team-card {
-            background: var(--bg-alt);
+            background: #fff;
             border-radius: var(--radius);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: transform 0.3s;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
         }
 
-        .team-card:hover { transform: translateY(-4px); }
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
 
-        .team-avatar {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .team-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .team-info {
+            padding: 1.8rem;
+        }
+
+        .team-info h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .team-role {
+            color: var(--blue);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-info p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .team-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--bg-alt);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .team-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.3rem;
-        }
-
-        .team-card .role {
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .team-card p {
             color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.7;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: var(--transition);
         }
 
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 4rem;
-            flex-wrap: wrap;
+        .team-social a:hover {
+            background: var(--blue);
+            color: #fff;
         }
 
-        .stat {
+        /* ── STATS ── */
+        .stats-section {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             text-align: center;
         }
 
-        .stat h4 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
+        .stat-item h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 0.3rem;
         }
 
-        .stat span {
-            color: var(--text-light);
+        .stat-item span {
+            color: rgba(255,255,255,0.75);
             font-size: 0.9rem;
+            font-weight: 400;
         }
 
-        /* ── CONTACT ── */
-        #contact { background: var(--bg-alt); }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+        /* ── CTA BANNER ── */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--dark) 0%, #2a3050 100%);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-info h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--dark);
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(50,92,232,0.15);
+            top: -150px;
+            right: -100px;
+        }
+
+        .cta-banner::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(10,210,186,0.1);
+            bottom: -100px;
+            left: -50px;
+        }
+
+        .cta-banner .container { position: relative; z-index: 1; }
+
+        .cta-banner h2 {
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
             margin-bottom: 1rem;
         }
 
-        .contact-info p {
+        .cta-banner p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        /* ── CONTACT ── */
+        #contact {
+            background: var(--bg-alt);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 3rem;
+        }
+
+        .contact-sidebar h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-sidebar > p {
             color: var(--text-light);
+            font-size: 0.95rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
-        .contact-item {
+        .contact-detail {
             display: flex;
-            align-items: flex-start;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
-        .contact-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(50,92,232,0.1);
+        .contact-detail-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--blue-light);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -433,69 +861,49 @@
             flex-shrink: 0;
         }
 
-        .contact-item-text { font-size: 0.95rem; }
-
-        .contact-item-text strong {
-            display: block;
-            color: var(--dark);
-            margin-bottom: 0.2rem;
+        .contact-detail-text {
+            font-size: 0.9rem;
         }
 
-        .contact-item-text a {
-            color: var(--primary);
+        .contact-detail-text strong {
+            display: block;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .contact-detail-text a {
+            color: var(--blue);
             text-decoration: none;
         }
 
-        .contact-item-text a:hover { text-decoration: underline; }
+        .contact-detail-text a:hover {
+            text-decoration: underline;
+        }
 
-        .contact-item-text span { color: var(--text-light); }
+        .contact-detail-text span {
+            color: var(--text-light);
+        }
 
-        .contact-form {
+        .contact-form-card {
             background: #fff;
             border-radius: var(--radius);
             padding: 2.5rem;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
         }
 
-        .contact-form h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .contact-form-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
             color: var(--dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.3rem;
         }
 
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--dark);
-            margin-bottom: 0.4rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #dde;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .contact-form-card .subtitle {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
         }
 
         .form-row {
@@ -504,45 +912,150 @@
             gap: 1rem;
         }
 
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: var(--transition);
+            outline: none;
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(50,92,232,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
         .btn-submit {
             width: 100%;
-            padding: 0.9rem;
-            background: var(--primary);
+            padding: 0.85rem;
+            background: var(--blue);
             color: #fff;
             border: none;
             border-radius: 50px;
             font-family: inherit;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(50,92,232,0.25);
+            transition: var(--transition);
+            box-shadow: 0 4px 16px rgba(50,92,232,0.25);
         }
 
         .btn-submit:hover {
-            background: var(--primary-dark);
+            background: var(--blue-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(50,92,232,0.35);
+            box-shadow: 0 6px 24px rgba(50,92,232,0.35);
         }
 
         /* ── FOOTER ── */
         footer {
             background: var(--dark);
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 2.5rem 2rem;
-            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 0 2rem;
         }
 
-        footer a {
-            color: var(--accent);
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--teal);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a {
+            color: var(--teal);
             text-decoration: none;
         }
 
-        footer a:hover { text-decoration: underline; }
+        .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-logo span { color: var(--teal); }
 
         /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+            .detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .detail-grid.reverse { direction: ltr; }
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-text .description { margin-left: auto; margin-right: auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { max-width: 500px; margin: 0 auto; }
+            .hero-float-card { left: 10px; bottom: -10px; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+
         @media (max-width: 768px) {
+            section { padding: 4rem 0; }
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .nav-links.open {
@@ -553,209 +1066,359 @@
                 left: 0;
                 right: 0;
                 background: #fff;
-                padding: 1rem 2rem;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-                gap: 1rem;
+                padding: 1rem 2rem 1.5rem;
+                box-shadow: var(--shadow-md);
+                gap: 0.25rem;
+                border-top: 1px solid var(--border);
             }
-            .hero { min-height: 80vh; }
-            .btn-outline { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
+            .nav-links.open a { padding: 0.6rem 1rem; }
+            .team-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
             .contact-grid { grid-template-columns: 1fr; }
-            .team-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
             .form-row { grid-template-columns: 1fr; }
-            .stats-row { gap: 2rem; }
+            .footer-inner { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1.2rem; }
+            .hero { padding: 6rem 1.2rem 3rem; min-height: auto; }
+            .hero-float-card { display: none; }
+            .stat-item h3 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <!-- NAV -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
         <div class="nav-inner">
-            <a href="#" class="logo">Aki<span>lead</span></a>
+            <a href="#" class="nav-logo">
+                <img src="https://akilead.com/wp-content/uploads/2020/03/2020-03-AkiLead-small-e1584547301557.png" alt="Akilead">
+            </a>
             <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="#hero">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">&Agrave; Propos</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Nous contacter</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO -->
     <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>R&eacute;v&eacute;ler l&rsquo;invisible</h1>
-            <p class="subtitle">La Performance par l&rsquo;Humain</p>
-            <p class="description">Nous vous accompagnons pour am&eacute;liorer la performance fiscale et financi&egrave;re de votre entreprise et p&eacute;renniser les r&eacute;sultats.</p>
-            <div>
-                <a href="#contact" class="btn btn-primary">Nous contacter</a>
-                <a href="#services" class="btn btn-outline">Nos services</a>
+        <div class="hero-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <p class="tagline">La Performance par l'Humain</p>
+                <h1>R&eacute;v&eacute;ler<br><span class="accent">l'invisible</span></h1>
+                <p class="description">Nous vous accompagnons pour am&eacute;liorer la performance fiscale et financi&egrave;re de votre entreprise et p&eacute;renniser les r&eacute;sultats.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Nous contacter &rarr;</a>
+                    <a href="#services" class="btn btn-outline">D&eacute;couvrir nos services</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img class="hero-image" src="https://akilead.com/wp-content/uploads/2023/10/impage-de-tete-tbc2.png" alt="Akilead &mdash; Audit fiscal et conseil">
+                <div class="hero-float-card">
+                    <div class="icon">&check;</div>
+                    <div>
+                        <div class="label">R&eacute;mun&eacute;ration</div>
+                        <div class="value">Au r&eacute;sultat</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES OVERVIEW -->
     <section id="services">
         <div class="container">
-            <div class="section-title">
-                <h2>Nos Services</h2>
-                <p>Des solutions sur mesure pour optimiser votre performance fiscale et organisationnelle</p>
-                <div class="bar"></div>
+            <div class="section-header">
+                <span class="section-label">Services</span>
+                <h2>Nous vous accompagnons dans l'am&eacute;lioration<br>de votre performance</h2>
+                <p>Des missions op&eacute;rationnelles r&eacute;mun&eacute;r&eacute;es au r&eacute;sultat, du diagnostic fiscal au coaching d'organisation.</p>
             </div>
+
             <div class="services-grid">
-
-                <div class="card">
-                    <div class="card-icon blue">&#128270;</div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://akilead.com/wp-content/uploads/2023/10/5-1-1024x1024.png" alt="Audit TVA">
+                    </div>
                     <h3>Audit TVA</h3>
-                    <p>Identification de la TVA omise en France et &agrave; l&rsquo;&eacute;tranger. R&eacute;cup&eacute;ration des montants dus et mise en conformit&eacute; de vos processus.</p>
+                    <p>Identification de la TVA omise &agrave; travers une analyse approfondie de vos factures fournisseurs et notes de frais.</p>
                     <ul>
-                        <li><strong>Factures fournisseurs (FEC)</strong> &mdash; d&eacute;tection de TVA omise ou en double</li>
-                        <li><strong>Notes de frais</strong> &mdash; r&eacute;cup&eacute;ration TVA d&eacute;placements France &amp; international</li>
-                        <li>Optimisation automatis&eacute;e via la plateforme <strong>VAT4U</strong></li>
+                        <li>Audit FEC &mdash; TVA omise ou en double</li>
+                        <li>Notes de frais &mdash; r&eacute;cup&eacute;ration France &amp; international</li>
+                        <li>Automatisation via plateforme VAT4U</li>
                     </ul>
-                    <span class="badge">Paiement au r&eacute;sultat</span>
+                    <span class="service-badge">&starf; Paiement au r&eacute;sultat</span>
+                    <br>
+                    <a href="#detail-tva" class="service-link">En savoir plus <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon teal">&#128202;</div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://akilead.com/wp-content/uploads/2023/10/8-1024x1024.png" alt="Audit Taxes Diverses">
+                    </div>
                     <h3>Audit Taxes Diverses</h3>
-                    <p>V&eacute;rification des bases taxables, exon&eacute;rations et calculs incluant abattements, r&eacute;ductions et seuils.</p>
+                    <p>Identification des trop-pay&eacute;s : v&eacute;rification des bases taxables, exon&eacute;rations, calculs et seuils.</p>
                     <ul>
-                        <li>Taxe sur les salaires &mdash; exon&eacute;rations par cat&eacute;gorie</li>
+                        <li>Taxe sur les salaires &amp; exon&eacute;rations</li>
                         <li>Prorata de TVA</li>
-                        <li>Taxes locales &amp; environnementales (TICFE, CVAE, TLE)</li>
-                        <li>Taxe sur la publicit&eacute;</li>
+                        <li>TICFE, CVAE, TLE, taxe publicitaire</li>
                     </ul>
-                    <span class="badge">R&eacute;cup&eacute;ration aupr&egrave;s des administrations</span>
+                    <span class="service-badge">&starf; R&eacute;cup&eacute;ration aupr&egrave;s des administrations</span>
+                    <br>
+                    <a href="#detail-taxes" class="service-link">En savoir plus <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
                 </div>
 
-                <div class="card">
-                    <div class="card-icon purple">&#127919;</div>
-                    <h3>Coaching d&rsquo;Organisation</h3>
-                    <p>D&eacute;ploy&eacute; en post-audit ou de mani&egrave;re pr&eacute;ventive pour p&eacute;renniser les r&eacute;sultats.</p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://akilead.com/wp-content/uploads/2023/10/6-1024x1024.png" alt="Coaching d'Organisation">
+                    </div>
+                    <h3>Coaching d'Organisation</h3>
+                    <p>P&eacute;renniser les r&eacute;sultats obtenus par un accompagnement humain et organisationnel cibl&eacute;.</p>
                     <ul>
-                        <li>Adaptation des processus et pistes d&rsquo;audit</li>
-                        <li>Documentation des proc&eacute;dures internes</li>
-                        <li>Coaching individuel de managers</li>
-                        <li>Coaching collectif d&rsquo;&eacute;quipe / d&eacute;partement</li>
+                        <li>Adaptation des processus et pistes d'audit</li>
+                        <li>Documentation des proc&eacute;dures</li>
+                        <li>Coaching individuel &amp; collectif</li>
                     </ul>
-                    <span class="badge">Coachs certifi&eacute;s &middot; Collectif Level&rsquo;in</span>
+                    <span class="service-badge">&starf; Coachs certifi&eacute;s &middot; Level'in</span>
+                    <br>
+                    <a href="#detail-coaching" class="service-link">En savoir plus <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ABOUT / TEAM -->
+    <!-- SERVICE DETAILS -->
+
+    <!-- Audit TVA Detail -->
+    <div class="service-detail" id="detail-tva">
+        <div class="container">
+            <div class="detail-grid">
+                <div class="detail-image">
+                    <img src="https://akilead.com/wp-content/uploads/2023/10/How-Archivage-ERP-1024x693.jpg" alt="Audit TVA &mdash; analyse des factures fournisseurs">
+                </div>
+                <div class="detail-content">
+                    <span class="detail-label">Audit TVA</span>
+                    <h3>Traquer les omissions, corriger durablement</h3>
+                    <p>Cette mission tr&egrave;s op&eacute;rationnelle vise &agrave; identifier la TVA omise, &agrave; travers une analyse approfondie de deux types de charges : les factures fournisseurs et les notes de frais.</p>
+                    <p>Il est fr&eacute;quent que nos clients aient d&eacute;j&agrave; mis en place des r&egrave;gles de d&eacute;duction fiscale et des bonnes pratiques, mais il arrive que certaines sp&eacute;cificit&eacute;s li&eacute;es &agrave; votre activit&eacute; ou &agrave; la nature de certaines d&eacute;penses ne soient pas int&eacute;gr&eacute;es dans les param&eacute;trages de leurs syst&egrave;mes ERP.</p>
+                    <ul>
+                        <li>Audit des factures fournisseurs via le FEC (Fichier des &Eacute;critures Comptables)</li>
+                        <li>Audit des notes de frais &mdash; d&eacute;placements France et international</li>
+                        <li>R&eacute;cup&eacute;ration aupr&egrave;s des autorit&eacute;s comp&eacute;tentes ou de vos fournisseurs</li>
+                    </ul>
+                    <div class="detail-highlight">
+                        <p>Notre mission s'ach&egrave;ve &agrave; la constatation effective de l'&eacute;conomie. Nos missions sont r&eacute;mun&eacute;r&eacute;es exclusivement en fonction des r&eacute;sultats obtenus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audit Taxes Detail -->
+    <div class="service-detail" id="detail-taxes">
+        <div class="container">
+            <div class="detail-grid reverse">
+                <div class="detail-image">
+                    <img src="https://akilead.com/wp-content/uploads/2023/10/transparence-et-savoir.webp" alt="Audit Taxes Diverses">
+                </div>
+                <div class="detail-content">
+                    <span class="detail-label">Audit Taxes Diverses</span>
+                    <h3>Rendre compr&eacute;hensible les syst&egrave;mes complexes</h3>
+                    <p>Notre mission d'audit op&eacute;rationnel, tout comme celle que nous menons en mati&egrave;re de TVA, vise &agrave; identifier les trop-pay&eacute;s.</p>
+                    <p>Notre approche consiste &agrave; rendre compr&eacute;hensible des syst&egrave;mes complexes, tels que ceux que la fiscalit&eacute; fran&ccedil;aise peut r&eacute;server, et &agrave; vous permettre de rectifier les erreurs commises dans le pass&eacute;, tout en anticipant l'avenir.</p>
+                    <ul>
+                        <li>Taxe sur les salaires &mdash; optimisation par cat&eacute;gorie de personnel</li>
+                        <li>Revue du prorata de TVA</li>
+                        <li>Taxes locales et environnementales (TICFE, CVAE, TLE)</li>
+                        <li>Taxe sur la publicit&eacute;</li>
+                        <li>R&eacute;cup&eacute;rations directes aupr&egrave;s des administrations fiscales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coaching Detail -->
+    <div class="service-detail" id="detail-coaching">
+        <div class="container">
+            <div class="detail-grid">
+                <div class="detail-image">
+                    <img src="https://akilead.com/wp-content/uploads/2023/10/image-tete-tbc4-2.webp" alt="Coaching d'Organisation">
+                </div>
+                <div class="detail-content">
+                    <span class="detail-label">Coaching d'Organisation</span>
+                    <h3>Garantir la s&eacute;curit&eacute; et la p&eacute;rennit&eacute; des r&eacute;sultats</h3>
+                    <p>Cette mission intervient g&eacute;n&eacute;ralement &agrave; l'issue d'un audit, mais peut parfois &ecirc;tre mise en place d&egrave;s le d&eacute;part pour garantir la s&eacute;curit&eacute; et la p&eacute;rennit&eacute; des r&eacute;sultats obtenus.</p>
+                    <p>Tous nos coachs sont certifi&eacute;s et s&eacute;lectionn&eacute;s en fonction de leur expertise sectorielle et de vos besoins sp&eacute;cifiques.</p>
+                    <ul>
+                        <li>Adaptation des processus et revue des pistes d'audit</li>
+                        <li>Documentation des workflows et proc&eacute;dures internes</li>
+                        <li>Coaching individuel de managers</li>
+                        <li>Coaching collectif d'&eacute;quipe ou de d&eacute;partement</li>
+                    </ul>
+                    <div class="detail-highlight">
+                        <p>Nos coachs sont coordonn&eacute;s &agrave; travers le collectif Level'in. Fran&ccedil;ois Mary est form&eacute; HEC et certifi&eacute; ICI Gen&egrave;ve.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <span>Ann&eacute;es d'exp&eacute;rience</span>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <span>Missions r&eacute;alis&eacute;es</span>
+                </div>
+                <div class="stat-item">
+                    <h3>2017</h3>
+                    <span>Cr&eacute;ation d'Akilead</span>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <span>R&eacute;mun&eacute;ration au r&eacute;sultat</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
     <section id="about">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
+                <span class="section-label">&Agrave; Propos</span>
                 <h2>Qui sommes-nous ?</h2>
-                <p>Un cabinet de conseil op&eacute;rationnel sp&eacute;cialis&eacute; en audit fiscal et accompagnement humain</p>
-                <div class="bar"></div>
             </div>
 
             <div class="about-intro">
-                <p>Fond&eacute;e en 2017, <strong>Akilead</strong> accompagne les entreprises dans l&rsquo;optimisation de leur performance fiscale et organisationnelle. Notre approche place l&rsquo;humain au c&oelig;ur de chaque mission&nbsp;: nous croyons que la performance durable passe par des &eacute;quipes comp&eacute;tentes, des processus clairs et une vision partag&eacute;e.</p>
-                <p>Nous op&eacute;rons &eacute;galement <strong>VAT4U</strong> (E-VAT SAS), notre plateforme d&eacute;di&eacute;e &agrave; la r&eacute;cup&eacute;ration automatis&eacute;e de TVA, et nous nous appuyons sur un r&eacute;seau de consultants sp&eacute;cialis&eacute;s par secteur.</p>
+                <p>Akilead est une soci&eacute;t&eacute; de conseil op&eacute;rationnel, d&eacute;di&eacute;e &agrave; l'audit de la fiscalit&eacute; des entreprises et l'accompagnement op&eacute;rationnel. Nous nous appuyons sur un r&eacute;seau de consultants sp&eacute;cialis&eacute;s par secteur pour vous offrir une expertise cibl&eacute;e.</p>
+                <div class="vat4u-mention">
+                    <img src="https://akilead.com/wp-content/uploads/2023/12/Logo-vat4u-bln-e1688368043110-1024x291.png" alt="VAT4U">
+                    <span>Notre plateforme de r&eacute;cup&eacute;ration automatis&eacute;e de TVA (E-VAT SAS)</span>
+                </div>
             </div>
 
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-avatar">FM</div>
-                    <h3>Fran&ccedil;ois Mary</h3>
-                    <p class="role">CEO &amp; Fondateur &middot; Expert fiscal &amp; Coach</p>
-                    <p>+25 ans de conseil op&eacute;rationnel. Pass&eacute; de sp&eacute;cialiste fiscal &agrave; directeur de business unit. Formation HEC Coaching (2015) et ICF Gen&egrave;ve (2022). A fond&eacute; Akilead en 2017.</p>
+                    <img class="team-photo" src="https://akilead.com/wp-content/uploads/2023/12/VF-1024x1024.png" alt="Fran&ccedil;ois Mary">
+                    <div class="team-info">
+                        <h3>Fran&ccedil;ois Mary</h3>
+                        <p class="team-role">CEO &amp; Fondateur &middot; Expert fiscal &amp; Coach</p>
+                        <p>J'ai consacr&eacute; plus de vingt-cinq ans de ma vie &agrave; &eacute;voluer dans le monde du conseil op&eacute;rationnel. Mon parcours m'a conduit de fiscaliste &agrave; Manager, pour finalement devenir associ&eacute; et directeur d'une Business Unit. J'ai fa&ccedil;onn&eacute; mon expertise autour de deux piliers : l'optimisation de la fiscalit&eacute; des entreprises, avec une sp&eacute;cialisation dans la TVA, ainsi que le coaching visant &agrave; am&eacute;liorer la performance des entreprises.</p>
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/francoismary/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-avatar">SS</div>
-                    <h3>Stephie Sch&uuml;pp</h3>
-                    <p class="role">Associ&eacute;e &middot; Experte TVA Internationale</p>
-                    <p>Ancienne inspectrice fiscale allemande (1997-2004). +20 ans sur les probl&eacute;matiques TVA internationales. Pilote les activit&eacute;s TVA &agrave; l&rsquo;international et la relation avec les administrations &eacute;trang&egrave;res.</p>
-                </div>
-            </div>
 
-            <div class="stats-row">
-                <div class="stat">
-                    <h4>25+</h4>
-                    <span>Ann&eacute;es d&rsquo;exp&eacute;rience</span>
-                </div>
-                <div class="stat">
-                    <h4>100+</h4>
-                    <span>Missions r&eacute;alis&eacute;es</span>
-                </div>
-                <div class="stat">
-                    <h4>2017</h4>
-                    <span>Fondation</span>
+                <div class="team-card">
+                    <img class="team-photo" src="https://akilead.com/wp-content/uploads/2023/11/6-1024x1024.png" alt="Stephie Sch&uuml;pp">
+                    <div class="team-info">
+                        <h3>Stephie Sch&uuml;pp</h3>
+                        <p class="team-role">Associ&eacute;e &middot; Experte TVA Internationale</p>
+                        <p>Hallo ! Je suis Stephie, associ&eacute;e, en charge de l'activit&eacute; TVA &eacute;trang&egrave;re. Ancienne inspectrice des imp&ocirc;ts en Allemagne de 1997 &agrave; 2004, j'ai consacr&eacute; plus de 20 ans de ma carri&egrave;re &agrave; aborder des probl&eacute;matiques TVA, en particulier sur la sc&egrave;ne internationale, dont une dizaine d'ann&eacute;es pass&eacute;e aux c&ocirc;t&eacute;s de Fran&ccedil;ois.</p>
+                        <div class="team-social">
+                            <a href="https://www.linkedin.com/in/stephanieschuppduveau/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CTA BANNER -->
+    <div class="cta-banner">
+        <div class="container">
+            <h2>Ensemble, explorons les solutions<br>qui r&eacute;pondront &agrave; vos besoins</h2>
+            <p>Et vous aideront &agrave; atteindre vos objectifs d'am&eacute;lioration de votre performance.</p>
+            <a href="#contact" class="btn btn-white">Prendre rendez-vous &rarr;</a>
+        </div>
+    </div>
+
     <!-- CONTACT -->
     <section id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact</h2>
-                <p>Ensemble, explorons les solutions qui r&eacute;pondront &agrave; vos besoins</p>
-                <div class="bar"></div>
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2>Parlons de votre projet</h2>
             </div>
 
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-sidebar">
                     <h3>Bonjour !</h3>
-                    <p>Nous sommes ravis de vous lire ou de vous entendre. Vos questions et pr&eacute;occupations comptent&nbsp;&mdash; contactez-nous pour une premi&egrave;re consultation.</p>
+                    <p>Nous sommes ravis de vous lire ou de vous entendre. Vos questions, pr&eacute;occupations ou id&eacute;es sont importantes pour nous, et nous sommes l&agrave; pour vous aider. N'h&eacute;sitez pas &agrave; nous &eacute;crire directement ou &agrave; utiliser le formulaire ci-contre.</p>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">&#9993;</div>
-                        <div class="contact-item-text">
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">&male;</div>
+                        <div class="contact-detail-text">
                             <strong>Email</strong>
                             <a href="mailto:info@akilead.com">info@akilead.com</a>
                         </div>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">&#128205;</div>
-                        <div class="contact-item-text">
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">&#128205;</div>
+                        <div class="contact-detail-text">
                             <strong>Adresse</strong>
-                            <span>49 rue de Ponthieu, 75008 Paris</span>
+                            <span>49 rue de Ponthieu<br>75008 Paris, France</span>
                         </div>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">&#127760;</div>
-                        <div class="contact-item-text">
-                            <strong>Site</strong>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">&#127760;</div>
+                        <div class="contact-detail-text">
+                            <strong>Site web</strong>
                             <a href="https://akilead.com" target="_blank">akilead.com</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-form">
+                <div class="contact-form-card">
                     <h3>Envoyez-nous un message</h3>
+                    <p class="subtitle">Notre &eacute;quipe vous r&eacute;pondra dans les plus brefs d&eacute;lais.</p>
                     <form action="mailto:info@akilead.com" method="POST" enctype="text/plain">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Votre nom</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="email">Adresse email</label>
+                                <input type="email" id="email" name="email" placeholder="jean@exemple.com" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">Objet</label>
-                            <input type="text" id="subject" name="subject">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">T&eacute;l&eacute;phone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+33 1 23 45 67 89">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <input type="text" id="subject" name="subject" placeholder="Audit TVA, Coaching...">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <textarea id="message" name="message" placeholder="D&eacute;crivez votre besoin ou votre question..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-submit">Contactez-nous</button>
+                        <button type="submit" class="btn-submit">Envoyer le message</button>
                     </form>
                 </div>
             </div>
@@ -764,9 +1427,44 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 <a href="https://akilead.com">Akilead</a> &mdash; La Performance par l&rsquo;Humain &middot; 49 rue de Ponthieu, 75008 Paris &middot; <a href="mailto:info@akilead.com">info@akilead.com</a></p>
-        <p style="margin-top:0.5rem"><a href="#">Mentions l&eacute;gales</a> &middot; <a href="#">Politique de confidentialit&eacute;</a></p>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">Aki<span>lead</span></a>
+                    <p>Soci&eacute;t&eacute; de conseil op&eacute;rationnel d&eacute;di&eacute;e &agrave; l'audit fiscal et l'accompagnement des entreprises. La Performance par l'Humain.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <a href="#detail-tva">Audit TVA</a>
+                    <a href="#detail-taxes">Audit Taxes Diverses</a>
+                    <a href="#detail-coaching">Coaching d'Organisation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Entreprise</h4>
+                    <a href="#about">&Agrave; Propos</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://akilead.com" target="_blank">akilead.com</a>
+                </div>
+                <div class="footer-col">
+                    <h4>L&eacute;gal</h4>
+                    <a href="#">Mentions l&eacute;gales</a>
+                    <a href="#">Politique de confidentialit&eacute;</a>
+                    <a href="#">RGPD</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Akilead &mdash; 49 rue de Ponthieu, 75008 Paris</span>
+                <span><a href="mailto:info@akilead.com">info@akilead.com</a></span>
+            </div>
+        </div>
     </footer>
+
+    <!-- SCROLL NAV SHADOW -->
+    <script>
+        window.addEventListener('scroll', function() {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+        });
+    </script>
 
 </body>
 </html>
