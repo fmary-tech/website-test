@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akilead — La Performance par l'Humain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #325ce8;
+      --primary-dark: #2648c0;
+      --accent: #0AD2BA;
+      --text: #333;
+      --text-light: #717171;
+      --bg: #ffffff;
+      --bg-alt: #f2f3f8;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--bg);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 50%, #f2f3f8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(50,92,232,0.08) 0%, transparent 70%);
+      top: -100px;
+      right: -200px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,210,186,0.08) 0%, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-light);
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(50,92,232,0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(50,92,232,0.4);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      margin-left: 1rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section-title .bar {
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 1rem auto 0;
+    }
+
+    /* SERVICES */
+    #services { background: var(--bg-alt); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      border-top-color: var(--primary);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-icon.blue { background: rgba(50,92,232,0.1); }
+    .card-icon.teal { background: rgba(10,210,186,0.1); }
+    .card-icon.purple { background: rgba(130,80,230,0.1); }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-link {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+
+    .card-link:hover { gap: 0.6rem; }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--primary) 0%, #4a70f0 100%);
+      border-radius: var(--radius);
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(10,210,186,0.2);
+      bottom: -60px;
+      right: -60px;
+    }
+
+    .about-text h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item h4 {
+      font-size: 2rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .stat-item span {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* CONTACT */
+    #contact { background: var(--bg-alt); }
+
+    .contact-box {
+      max-width: 650px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 3rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-box p {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: #1a1f36;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { height: 250px; }
+      .stats { flex-wrap: wrap; }
+      .hero { min-height: 80vh; }
+      .btn-outline { margin-left: 0; margin-top: 1rem; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">Aki<span>lead</span></a>
+      <ul class="nav-links">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">A propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Reveler l'invisible</h1>
+      <p class="subtitle">La Performance par l'Humain</p>
+      <div>
+        <a href="#contact" class="btn btn-primary">Nous contacter</a>
+        <a href="#services" class="btn btn-outline">Nos services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nos Services</h2>
+        <p>Des solutions sur mesure pour optimiser votre performance fiscale et organisationnelle</p>
+        <div class="bar"></div>
+      </div>
+      <div class="services-grid">
+
+        <div class="card">
+          <div class="card-icon blue">&#128270;</div>
+          <h3>Audit TVA</h3>
+          <p>Identification de la TVA omise en France et a l'etranger. Recuperation des montants dus et mise en conformite de vos processus de facturation.</p>
+          <a href="#contact" class="card-link">En savoir plus &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon teal">&#128202;</div>
+          <h3>Audit Taxes Diverses</h3>
+          <p>Taxes sur les salaires, fiscalite environnementale, contributions specifiques. Analyse complete et optimisation de votre charge fiscale.</p>
+          <a href="#contact" class="card-link">En savoir plus &rarr;</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon purple">&#9881;</div>
+          <h3>Process &amp; Organisation</h3>
+          <p>Audit des circuits de traitement, mise en place de pistes d'audit fiables et optimisation des systemes de conformite TVA.</p>
+          <a href="#contact" class="card-link">En savoir plus &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">A</div>
+        <div class="about-text">
+          <h3>A propos d'Akilead</h3>
+          <p>Fondee par Francois Mary, Akilead accompagne les entreprises dans l'optimisation de leur performance fiscale et organisationnelle.</p>
+          <p>Notre approche place l'humain au coeur de chaque mission. Nous croyons que la performance durable passe par des equipes competentes, des processus clairs et une vision partagee.</p>
+          <div class="stats">
+            <div class="stat-item">
+              <h4>15+</h4>
+              <span>Annees d'experience</span>
+            </div>
+            <div class="stat-item">
+              <h4>100+</h4>
+              <span>Missions realisees</span>
+            </div>
+            <div class="stat-item">
+              <h4>98%</h4>
+              <span>Clients satisfaits</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Parlons de votre projet</p>
+        <div class="bar"></div>
+      </div>
+      <div class="contact-box">
+        <h3>Prenons rendez-vous</h3>
+        <p>N'hesitez pas a nous contacter pour discuter de vos besoins en audit fiscal ou en optimisation organisationnelle.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            &#9993;&nbsp; <a href="mailto:fmary@akilead.com">fmary@akilead.com</a>
+          </div>
+          <div class="contact-item">
+            &#127760;&nbsp; <a href="https://akilead.com" target="_blank">akilead.com</a>
+          </div>
+        </div>
+        <a href="mailto:fmary@akilead.com" class="btn btn-primary">Envoyer un message</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 <a href="https://akilead.com">Akilead</a> — La Performance par l'Humain. Tous droits reserves.</p>
+  </footer>
+
+</body>
+</html>
